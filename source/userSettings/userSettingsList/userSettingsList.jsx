@@ -5,7 +5,8 @@ import styles from './userSettingsList.sass';
 import UserSettingsListItem from './userSettingsListItem/userSettingsListItem';
 
 const UserSettingsList = props => {
-    const {nickname, status, name, role, location, lastLogin} = props;
+		const {user} = props;
+		
     return (
         <table className={styles.userSettingsList}>
 					<thead>
@@ -21,22 +22,20 @@ const UserSettingsList = props => {
 						</tr>
 					</thead>
 					<tbody>
-						<UserSettingsListItem
-							nickname={nickname}
-							name={name}
-							role={role}
-							location={location}
-							lastLogin={lastLogin}
-							status={status}
-						/>
-						<UserSettingsListItem
-							nickname={nickname}
-							name={name}
-							role={role}
-							location={location}
-							lastLogin={lastLogin}
-							status={status}
-						/>
+						{
+							user.map((item)=>(
+								<UserSettingsListItem
+									key={item._id}
+									nickname={item.userName}
+									firstName={item.firstName}
+									lastName={item.lastName}
+									role='Content Manager'
+									location='Vilnus Airport'
+									lastLogin='2018-12-31 17:30:36'
+									status='Active'
+								/>
+							))
+						}
 					</tbody>
         </table>
 )};

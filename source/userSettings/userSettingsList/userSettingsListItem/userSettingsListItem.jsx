@@ -12,7 +12,6 @@ class UserSettingsListItem extends Component {
 	clicked () {
 		this.setState({ active: !this.state.active })
 		console.log('click');
-		
 	}
 	 render() {
 			return (
@@ -22,7 +21,7 @@ class UserSettingsListItem extends Component {
 							</td>
 							<td className={styles.username}>
 								<p>{this.props.nickname}</p>
-								<span>Name: {this.props.name}</span>
+								<span>Name: {this.props.firstName} {this.props.lastName}</span>
 							</td>
 							<td>
 								<div className={`${styles.status} ${styles.statusActive}`}></div>
